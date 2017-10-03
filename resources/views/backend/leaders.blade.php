@@ -20,6 +20,7 @@
                                 <th>#</th>
                                 <th>Category</th>
                                 <th>Position</th>
+                                <th>Names</th>
                                 <th>Location</th>
                                 <th>Actions</th>
                             </tr>
@@ -30,8 +31,15 @@
                                     <td></td>
                                     <td>{{$leader->name}}</td>
                                     <td>{{$leader->position}}</td>
+                                    <td>
+                                        @if(isset($leader->leader->first_name))
+                                            {{$leader->leader->first_name}} , {{$leader->leader->last_name}}
+                                        @else
+                                            Not Set
+                                        @endif
+                                    </td>
                                     <td>{{$leader->location}}</td>
-                                    <td><a href="{{url('/admin/leaders/edit/'.$leader->id)}}">edit</a> </td>
+                                    <td><a href="{{url('/admin/leaders/edit/'.$leader->id)}}">edit</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

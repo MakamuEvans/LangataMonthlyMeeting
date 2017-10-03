@@ -13,7 +13,8 @@
 
 Route::get('/', function () {
     $home= true;
-    return view('index', compact('home'));
+    $news = \App\Event::orderBy('id', 'desc')->get();
+    return view('index', compact('home', 'news'));
 });
 Route::get('/about-us', function () {
     $about_us = true;
@@ -27,6 +28,10 @@ Route::get('/programs/quakers-men', 'BackEndController@quakerMen');
 Route::get('/programs/sunday-school', 'BackEndController@sundaySchool');
 Route::get('/programs/usfw', 'BackEndController@usfw');
 Route::get('/programs/youth', 'BackEndController@youth');
+
+
+
+Route::post('/leaders/add', 'BackEndController@addLeader');
 
 
 Route::get('/sermons/', 'BackEndController@sermons');
@@ -59,11 +64,13 @@ Route::get('/committee/personal', 'BackEndController@personal');
 Route::get('/admin/index', function () {
     return view('backend.index');
 });
-Route::get('/admin/leaders', 'BackEndController@leaders');
+Route::get('/admin/leaders', 'BackEndController@leaders')->name('leaders');
 
 Route::get('/admin/leaders/edit/{id}', 'BackEndController@editLeader');
 
-Route::get('/admin/themes', 'BackEndController@adminThemes');
+Route::get('/admin/themes', 'BackEndController@adminThemes')->name('sermon');
+Route::get('/admin/themes/new', 'BackEndController@adminThemesNew');
+Route::post('/admin/themes/add', 'BackEndController@adminThemesAdd');
 
 Route::get('/admin/mission', function () {
     return view('backend.mission');

@@ -8,7 +8,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">Sermons</div>
                         <div class="panel-options">
-                            <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-new-window"></i></a>
+                            <a href="{{url('admin/themes/new')}}" data-rel="collapse">New</a>
                         </div>
                     </div>
                     <div class="panel-body">

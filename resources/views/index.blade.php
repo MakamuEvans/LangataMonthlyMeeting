@@ -15,7 +15,7 @@
                 <li data-bg-image="images/slide-1.jpg">
                     <div class="container">
                         <div class="slide-content">
-                            
+
                         </div>
                     </div>
                 </li>
@@ -79,34 +79,15 @@
                         <b class="theme-l" style="font-size: 25px">Announcements / News</b>
 
                         <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="news">
-                                    <image class="news-image" src="images/news-thumb-1.jpg"></image>
-                                    <h3 class="news-title"><a href="#">Item 1</a></h3>
-                                    <small class="date"><i class="fa fa-calendar"></i>24 mar 2017</small>
+                            @foreach($news as $new)
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="news">
+                                        <h3 class="news-title"><a href="#">{{$new->title}}</a></h3>
+                                        <p>{{$new->description}}</p>
+                                        <small class="date"><i class="fa fa-calendar"></i>{{$new->dated}}</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="news">
-                                    <image class="news-image" src="images/news-thumb-2.jpg"></image>
-                                    <h3 class="news-title"><a href="#">Item 2</a></h3>
-                                    <small class="date"><i class="fa fa-calendar"></i>24 mar 2017</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="news">
-                                    <image class="news-image" src="images/news-thumb-3.jpg"></image>
-                                    <h3 class="news-title"><a href="#">Item 3</a></h3>
-                                    <small class="date"><i class="fa fa-calendar"></i>24 mar 2017</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="news">
-                                    <image class="news-image" src="images/news-thumb-4.jpg"></image>
-                                    <h3 class="news-title"><a href="#">Item 4</a></h3>
-                                    <small class="date"><i class="fa fa-calendar"></i>24 mar 2017</small>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

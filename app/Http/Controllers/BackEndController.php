@@ -7,6 +7,7 @@ use App\Event;
 use App\Leaders;
 use App\Sermon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class BackEndController extends Controller
 {
@@ -16,6 +17,7 @@ class BackEndController extends Controller
 
     public function leaders(){
         $leaders = Category::all();
+        //dd($leaders[0]->leader->first_name);
         return view('backend.leaders', compact('leaders'));
     }
 
@@ -85,7 +87,7 @@ class BackEndController extends Controller
     }
 
     public function sermons(){
-        $sermons = Sermon::all();
+        $sermons = Sermon::orderBy('id', 'desc')->get();
         return view('sermons.index', compact('sermons'));
     }
     public function events(){
@@ -93,7 +95,9 @@ class BackEndController extends Controller
         return view('events.index', compact('events'));
     }
     public function gallery(){}
-    public function downloads(){}
+    public function downloads(){
+        return view('downloads.index');
+    }
     public function editLeader($id){
         $leader = Category::findorFail($id);
         return view('backend.editleader', compact('leader'));
@@ -101,5 +105,56 @@ class BackEndController extends Controller
     public function adminThemes(){
         $sermons = Sermon::all();
         return view('backend.sermon.index', compact('sermons'));
+    }
+
+    public function addLeader(Request $request){
+        if (isset($request->image)){
+            $file = Input::file('image');
+
+            $originname= $file->getClientOriginalName();
+
+            $filename = pathinfo($originname, PATHINFO_FILENAME);
+            $extension = pathinfo($originname, PATHINFO_EXTENSION);
+            $name = $filename.'.'.time().'.' . $extension;
+
+            $size = $file->getSize();
+            //dd($size);
+            Input::file('image')->move(public_path() . '/leaders/', $name);
+        }
+
+        if (Leaders::where('pos_id', $request->pos_id)->exists()){
+            //update
+            $leader = Leaders::where('pos_id', $request->pos_id)->first();
+            $leader->first_name = $request->first_name;
+            $leader->last_name = $request->last_name;
+            $leader->contact = $request->contact;
+            if (isset($request->image)){
+                $leader->image = $name;
+            }
+            $leader->save();
+
+
+        }else{
+            //create new
+            Leaders::create(array(
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'contact' => $request->contact,
+                'image' => $name,
+                'pos_id' => $request->pos_id
+            ));
+        }
+        return redirect()->route('leaders')
+            ->with('status','Successfully Edited Leader');
+    }
+    public function adminThemesNew(){
+        return view('backend.sermon.new');
+    }
+    public function adminThemesAdd(Request $request){
+        //dd($request->all());
+        $sermon = Sermon::create($request->all());
+        $sermon->save();
+        return redirect()->route('sermon')
+            ->with('status', 'Successfully Added Sermon');
     }
 }

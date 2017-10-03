@@ -10,23 +10,19 @@
         <div class="container">
             <div class="col-md-8">
                 @foreach($events as $event)
-                    <div class="row">
+                    <div class="col-md-6">
                         <b class="theme-l" style="font-size: 25px">{{$event->title}}</b>
-                        {{--<div class="row">
+                        <div class="row">
                             <ul class="seremon-list large">
                                 <li>
-                                    <img src="images/thumb-1-120.png" alt="">
                                     <div class="seremon-detail">
-                                        <div class="pastor"><i class="fa fa-user"></i> {{$sermon->verse}}</div><br>
-                                        <h3 class="seremon-title"><a href="#">{{$sermon->description}}</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="date"><i class="fa fa-calendar"></i> {{$sermon->type}}</div><br>
-                                            <div class="date"><i class="fa fa-calendar"></i> {{$sermon->period}}</div>
-                                        </div>
+                                        <div class="pastor"><i class="fa fa-user"></i> {{$event->description}}</div>
+                                        <br>
+                                        <h3 class="seremon-title"><a href="#">{{$event->dated}}</a></h3>
                                     </div>
                                 </li>
                             </ul>
-                        </div>--}}
+                        </div>
                     </div>
                 @endforeach
             </div>
