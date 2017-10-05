@@ -9,7 +9,7 @@
     <div class="fullwidth-block">
         <div class="container">
             <div class="col-md-8">
-                <div class="col-md-4" style="border: solid red 1px;text-align: center">
+                <div class="col-md-4" style="border: solid #1F55AB 1px;text-align: center">
                     <b>Title of item</b><br>
                     <i>Uploaded on:</i><br>
                     <a href="" class="btn btn-success btn-sm">Download</a>

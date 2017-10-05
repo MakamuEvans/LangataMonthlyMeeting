@@ -1,17 +1,14 @@
 <header class="site-header">
     <div class="container">
-        <a href="#" class="branding">
-            <img src="{{url('images/langata.jpg')}}" style="width: 250px;height: auto" alt="" class="logo">
-            <div class="row" style="margin: 0px;padding: 0px">
-                <i class="form-control">Lang'ata monthly meeting of friends church, P.O. BOX 51654, 00200-Nairobi</i>
-            </div>
-        </a>
-
         <div class="main-navigation">
+
             <button class="menu-toggle"><i class="fa fa-bars"></i> Menu</button>
             <ul class="menu theme-l">
+                <li class="menu-item pull-left theme-l" style="padding-top: 20px">
+                    <img src="{{url('images/langata.jpg')}}" style="width: 250px;height: auto" alt="" class="logo">
+                </li>
                 @if(isset($home))
-                    <li class="menu-item current-menu-item theme-l"><a href="{{url('/')}}">Home</a></li>
+                    <li class="menu-item current-menu-item theme-l" style="padding: 0px;margin: 0px"><a href="{{url('/')}}">Home</a></li>
                 @else
                     <li class="menu-item theme-l"><a href="{{url('/')}}">Home</a></li>
                 @endif

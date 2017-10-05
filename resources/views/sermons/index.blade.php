@@ -9,26 +9,48 @@
     <div class="fullwidth-block">
         <div class="container">
             <div class="col-md-8">
-                @foreach($sermons as $sermon)
-                    <div class="row">
-                        <b class="theme-l" style="font-size: 25px">{{$sermon->title}}</b>
-                        <div class="row">
-                            <ul class="seremon-list large">
-                                <li>
-                                    <img src="images/thumb-1-120.png" alt="">
-                                    <div class="seremon-detail">
-                                        <div class="pastor"><i class="fa fa-user"></i> {{$sermon->verse}}</div><br>
-                                        <h3 class="seremon-title"><a href="#">{{$sermon->description}}</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="date"><i class="fa fa-calendar"></i> {{$sermon->type}}</div><br>
-                                            <div class="date"><i class="fa fa-calendar"></i> {{$sermon->period}}</div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="row effect1 box" style="margin-bottom: 20px">
+                    <div class="col-md-7">
+                        <h2 style="color: #1F55AB">Theme of the Year</h2>
+                        <hr>
+                        <p>Title of the Theme<br>
+                            Bible verse<br>
+                            Bible Quotation</p>
                     </div>
-                @endforeach
+                    <div class="col-md-4">
+                        <h2 style="color: #1F55AB">Theme of the Month</h2>
+                        <hr>
+                        <p>Title of the Theme<br>
+                            Bible verse<br>
+                            Bible Quotation</p>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($sermons as $sermon)
+                        <div class="row">
+                            <b class="theme-l" style="font-size: 25px">{{$sermon->title}}</b>
+                            <div class="row">
+                                <ul class="seremon-list large">
+                                    <li>
+                                        <img src="images/thumb-1-120.png" alt="">
+                                        <div class="seremon-detail">
+                                            <div class="pastor"><i class="fa fa-user"></i> {{$sermon->verse}}</div>
+                                            <br>
+                                            <h3 class="seremon-title"><a href="#">{{$sermon->description}}</a></h3>
+                                            <div class="seremon-meta">
+                                                <div class="date"><i class="fa fa-calendar"></i> {{$sermon->type}}
+                                                </div>
+                                                <br>
+                                                <div class="date"><i class="fa fa-calendar"></i> {{$sermon->period}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             @include('includes.sidebar')
         </div>

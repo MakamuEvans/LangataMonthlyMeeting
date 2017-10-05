@@ -3,66 +3,72 @@
     <div class="site-content">
 
 
-        <div class="hero">
+        <div class="hero col-md-12">
             <div class="slides">
-                <li data-bg-image="images/church.jpg" style="opacity: 0.3">
-                    <div class="container">
-                        <div class="slide-content">
+                <div class="row">
+                    <li data-bg-image="images/church.jpg" style="opacity: 0.3">
+                        <div class="container">
+                            <div class="slide-content">
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-                <li data-bg-image="images/slide-1.jpg">
-                    <div class="container">
-                        <div class="slide-content">
+                    <li data-bg-image="images/slide-1.jpg">
+                        <div class="container">
+                            <div class="slide-content">
 
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                </div>
+
             </div>
         </div>
 
         <main class="main-content">
             <div class="fullwidth-block">
-                <div class="container">
-                    <div class="col-md-7" style="margin-right: 40px">
-                        <b class="theme-l" style="font-size: 25px">Theme of the Year - 2017</b>
+                <div class="container" style="margin-top: 10px">
+                    <div class="col-md-12 effect1 box">
+                        <div class="col-md-7" style="margin-right: 40px">
+                            <b class="theme-l" style="font-size: 25px">Theme of the Year - 2017</b>
 
-                        <div class="row">
-                            <ul class="seremon-list large">
-                                <li>
-                                    <img src="images/thumb-1-120.png" alt="">
-                                    <div class="seremon-detail">
-                                        <h3 class="seremon-title"><a href="#">Enhancing Servant Leadership</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="pastor"><i class="fa fa-user"></i> John 9:4</div>
-                                            <div class="date"><i class="fa fa-calendar"></i> Jan-Dec 2017</div>
+                            <div class="row">
+                                <ul class="seremon-list large">
+                                    <li>
+                                        <img src="images/thumb-1-120.png" alt="">
+                                        <div class="seremon-detail">
+                                            <h3 class="seremon-title"><a href="#">Enhancing Servant Leadership</a></h3>
+                                            <div class="seremon-meta">
+                                                <div class="pastor"><i class="fa fa-user"></i> John 9:4</div>
+                                                <div class="date"><i class="fa fa-calendar"></i> Jan-Dec 2017</div>
+                                            </div>
+                                            <p>The bible quotation goes here</p>
                                         </div>
-                                        <p>The bible quotation goes here</p>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="margin: 10px">
+                            <b class="theme-l" style="font-size: 20px">Theme of the Month - Sep</b>
+
+                            <div class="row">
+                                <ul class="seremon-list large">
+                                    <li>
+                                        <img src="images/thumb-1-120.png" alt="">
+                                        <div class="seremon-detail">
+                                            <h3 class="seremon-title"><a href="#">Enhancing Servant Leadership</a></h3>
+                                            <div class="seremon-meta">
+                                                <div class="pastor"><i class="fa fa-user"></i> John 9:4</div>
+                                                <div class="date"><i class="fa fa-calendar"></i> Jan-Dec 2017</div>
+                                            </div>
+                                            <p>The bible quotation goes here</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="margin: 10px">
-                        <b class="theme-l" style="font-size: 20px">Theme of the Month - Sep</b>
 
-                        <div class="row">
-                            <ul class="seremon-list large">
-                                <li>
-                                    <img src="images/thumb-1-120.png" alt="">
-                                    <div class="seremon-detail">
-                                        <h3 class="seremon-title"><a href="#">Enhancing Servant Leadership</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="pastor"><i class="fa fa-user"></i> John 9:4</div>
-                                            <div class="date"><i class="fa fa-calendar"></i> Jan-Dec 2017</div>
-                                        </div>
-                                        <p>The bible quotation goes here</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
 
                 </div> <!-- .container -->
             </div> <!-- section -->
@@ -74,13 +80,13 @@
                 </div>
             </div>
             <div class="fullwidth-block">
-                <div class="container">
-                    <div class="row">
+                <div class="container effect1 box">
+                    <div class="col-md-12">
                         <b class="theme-l" style="font-size: 25px">Announcements / News</b>
 
-                        <div class="row">
+                        <div class="col-md-12">
                             @foreach($news as $new)
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-md-3 col-sm-6" style="border: double 1px #1F55AB">
                                     <div class="news">
                                         <h3 class="news-title"><a href="#">{{$new->title}}</a></h3>
                                         <p>{{$new->description}}</p>

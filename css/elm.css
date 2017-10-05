@@ -1,7 +1,7 @@
 .effect1{
-    -webkit-box-shadow: 0 10px 6px -6px #777;
-    -moz-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777;
+    -webkit-box-shadow: 0 10px 6px -6px #1F55AB;
+    -moz-box-shadow: 0 10px 6px -6px #1F55AB;
+    box-shadow: 0 10px 6px -6px #1F55AB;
 }
 body{
     background-color: #f5f8fa;
@@ -11,4 +11,34 @@ body{
     background:#FFF;
     padding: 10px;
     margin-top: 20px;
+}
+.site-header{
+    padding: 0px !important;
+}
+header .site-header{
+    padding: 0px;
+}
+li a {
+    font-size: 15px !important;
+    color: #1F55AB !important;
+}
+.current-menu-item{
+    background: #1F55AB;
+    color: white !important;
+}
+.main-navigation .menu .menu-item a{
+    padding: 5px !important;
+}
+.site-footer{
+    background:  #1F55AB !important;
+    color: white;
+}
+.site-footer ul li a{
+    color: white !important;
+}
+.widget-title{
+    color: #1F55AB !important;
+}
+.page-title{
+    font-size: 20px !important;
 }

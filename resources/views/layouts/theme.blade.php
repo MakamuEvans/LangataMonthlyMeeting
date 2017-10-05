@@ -16,10 +16,13 @@
             color: #1F55AB !important;
         }
         a{
-            color: #1F55AB !important;
+            color: #ab560e !important;
         }
         item:hover a{
             border-bottom-color: #1F55AB !important;
+        }
+        .current-menu-item a{
+            color: white !important;
         }
     </style>
 
