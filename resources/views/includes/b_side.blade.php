@@ -7,6 +7,7 @@
             <li><a href="{{url('admin/themes')}}"><i class="glyphicon glyphicon-stats"></i> Themes</a></li>
             <li><a href="{{url('admin/mission')}}"><i class="glyphicon glyphicon-list"></i> Mission</a></li>
             <li><a href="{{url('admin/gallery')}}"><i class="glyphicon glyphicon-record"></i> Gallery</a></li>
+            <li><a href="{{url('admin/events')}}"><i class="glyphicon glyphicon-record"></i> News</a></li>
             <li><a href="{{url('admin/blog')}}"><i class="glyphicon glyphicon-pencil"></i> Blog</a></li>
             <li class="submenu">
                 <a href="#">

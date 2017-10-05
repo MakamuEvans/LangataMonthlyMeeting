@@ -152,9 +152,35 @@ class BackEndController extends Controller
     }
     public function adminThemesAdd(Request $request){
         //dd($request->all());
-        $sermon = Sermon::create($request->all());
-        $sermon->save();
+        if (Sermon::where('type', $request->type)->where('period', $request->period)->exists()){
+            $sermon = Sermon::where('type', $request->type)->where('period', $request->period)->first();
+            $sermon->title = $request->title;
+            $sermon->verse = $request->verse;
+            $sermon->description = $request->description;
+            $sermon->type = $request->type;
+            $sermon->period = $request->period;
+            $sermon->save();
+        }else{
+            $sermon = Sermon::create($request->all());
+            $sermon->save();
+        }
         return redirect()->route('sermon')
             ->with('status', 'Successfully Added Sermon');
+
+    }
+    public function adminNews(){
+        $events = Event::all();
+        return view('backend.events.index', compact('events'));
+    }
+    public function adminNewsNew(){
+        return view('backend.events.new');
+    }
+    public function adminNewsAdd(Request $request){
+        //dd($request->all());
+        $event= Event::create($request->all());
+        $event->save();
+
+        return redirect()->route('events')
+            ->with('status', 'Event Successfully added');
     }
 }

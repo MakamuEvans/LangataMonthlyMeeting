@@ -17,11 +17,6 @@
                 @else
                     <li class="menu-item"><a href="{{url('about-us')}}">About Us</a></li>
                 @endif
-                @if(isset($ministries))
-                    <li class="menu-item current-menu-item"><a href="{{url('ministries')}}">Ministries</a></li>
-                @else
-                    <li class="menu-item"><a href="{{url('ministries')}}">Ministries</a></li>
-                @endif
                 @if(isset($leaders))
                     <li class="menu-item current-menu-item"><a href="{{url('leaders')}}">Leaders</a></li>
                 @else

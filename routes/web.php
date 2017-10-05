@@ -14,7 +14,9 @@
 Route::get('/', function () {
     $home= true;
     $news = \App\Event::orderBy('id', 'desc')->get();
-    return view('index', compact('home', 'news'));
+    $themeYear= \App\Sermon::where('type', 'Yearly Theme')->where('period', date('Y'))->first();
+    $themeMonth= \App\Sermon::where('type', 'Monthly Theme')->where('period', date('M'))->first();
+    return view('index', compact('home', 'news', 'themeYear', 'themeMonth'));
 });
 Route::get('/about-us', function () {
     $about_us = true;
@@ -71,6 +73,11 @@ Route::get('/admin/leaders/edit/{id}', 'BackEndController@editLeader');
 Route::get('/admin/themes', 'BackEndController@adminThemes')->name('sermon');
 Route::get('/admin/themes/new', 'BackEndController@adminThemesNew');
 Route::post('/admin/themes/add', 'BackEndController@adminThemesAdd');
+
+
+Route::get('/admin/events', 'BackEndController@adminNews')->name('events');
+Route::get('/admin/events/new', 'BackEndController@adminNewsNew');
+Route::post('/admin/events/add', 'BackEndController@adminNewsAdd');
 
 Route::get('/admin/mission', function () {
     return view('backend.mission');

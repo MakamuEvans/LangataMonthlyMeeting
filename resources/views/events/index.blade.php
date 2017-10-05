@@ -10,7 +10,7 @@
         <div class="container">
             <div class="col-md-8">
                 @foreach($events as $event)
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="padding-left: 10px;border-left: 1px #1F55AB solid">
                         <b class="theme-l" style="font-size: 25px">{{$event->title}}</b>
                         <div class="row">
                             <ul class="seremon-list large">
