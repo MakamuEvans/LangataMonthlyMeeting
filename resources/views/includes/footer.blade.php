@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="widget">
-                    <h3 class="widget-title">Our address</h3>
+                    <h3 class="">Our address</h3>
                     <p>
                         Lang'ata monthly meeting of friends church,
                     </p>
@@ -16,20 +16,17 @@
             </div>
             <div class="col-md-4">
                 <div class="widget">
-                    <h3 class="widget-title">Previous Sermons</h3>
+                    <h3 class="" style="color: white">Previous Sermons</h3>
                     <ul class="bullet">
-                        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li><a href="#">Consectetur adipisicing elit quis nostrud</a></li>
-                        <li><a href="#">Eiusmod tempor incididunt ut labore et dolore magna</a></li>
-                        <li><a href="#">Ut enim ad minim veniam cillum</a></li>
-                        <li><a href="#">Exercitation ullamco laboris nisi ut aliquip</a></li>
-                        <li><a href="#">Duis aute irure dolor in reprehenderit in voluptate</a></li>
+                        @foreach($sermonFooter as $sf)
+                            <li><a href="#">{{$sf->title}}:{{$sf->verse}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="widget">
-                    <h3 class="widget-title">Contact form</h3>
+                    <h3 class="">Contact form</h3>
                     <form action="#" class="contact-form">
                         <div class="row">
                             <div class="col-md-6"><input type="text" placeholder="Your name..."></div>
@@ -46,7 +43,7 @@
 
         <p class="colophon">
             Copyright 2017 Friends Church Langata, Monthly meeting. All right reserved
-            <h6 class="pull-right">Designed by <a href="http://www.makamuevans.co.ke">Makamu Evans</a></h6>
+        <h6 class="pull-right">Designed by <a href="http://www.makamuevans.co.ke">Makamu Evans</a></h6>
         </p>
     </div><!-- .container -->
 </footer> <!-- .site-footer -->

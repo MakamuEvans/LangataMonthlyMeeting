@@ -2,9 +2,13 @@
     <div class="widget">
         <h3 class="widget-title">SideBar</h3>
         <b>Theme of this Year</b>
-        <p></p>
+        @if(isset($themeYear))
+            <p>{{$themeYear->title}} : {{$themeYear->verse}}</p>
+        @endif
         <b>Theme of this Month</b>
-        <p></p>
+        @if(isset($themeMonth))
+            <p>{{$themeMonth->title}} : {{$themeMonth->verse}}</p>
+        @endif
     </div>
 
     <div class="widget">

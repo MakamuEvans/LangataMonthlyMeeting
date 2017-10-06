@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
+    //dd(date('F Y'));
     $home= true;
     $news = \App\Event::orderBy('id', 'desc')->get();
     $themeYear= \App\Sermon::where('type', 'Yearly Theme')->where('period', date('Y'))->first();
-    $themeMonth= \App\Sermon::where('type', 'Monthly Theme')->where('period', date('M'))->first();
-    return view('index', compact('home', 'news', 'themeYear', 'themeMonth'));
+    $themeMonth= \App\Sermon::where('type', 'Monthly Theme')->where('period', date('F Y'))->first();
+    $quote = \App\Sermon::where('type', 'Quote')->first();
+    return view('index', compact('home', 'news', 'themeYear', 'themeMonth', 'quote'));
 });
 Route::get('/about-us', function () {
     $about_us = true;
@@ -46,6 +48,7 @@ Route::get('/gallery/', 'BackEndController@gallery');
 
 
 Route::get('/downloads/', 'BackEndController@downloads');
+Route::get('/downloads/link/{url}', 'BackEndController@download');
 
 
 Route::get('/local-meeting/langata', 'BackEndController@langata');
@@ -62,25 +65,33 @@ Route::get('/committee/mission-commission', 'BackEndController@missionCommission
 
 Route::get('/committee/personal', 'BackEndController@personal');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/admin/index', function () {
+        return view('backend.index');
+    });
+    Route::get('/admin/leaders', 'BackEndController@leaders')->name('leaders');
 
-Route::get('/admin/index', function () {
-    return view('backend.index');
-});
-Route::get('/admin/leaders', 'BackEndController@leaders')->name('leaders');
+    Route::get('/admin/leaders/edit/{id}', 'BackEndController@editLeader');
 
-Route::get('/admin/leaders/edit/{id}', 'BackEndController@editLeader');
-
-Route::get('/admin/themes', 'BackEndController@adminThemes')->name('sermon');
-Route::get('/admin/themes/new', 'BackEndController@adminThemesNew');
-Route::post('/admin/themes/add', 'BackEndController@adminThemesAdd');
+    Route::get('/admin/themes', 'BackEndController@adminThemes')->name('sermon');
+    Route::get('/admin/themes/new', 'BackEndController@adminThemesNew');
+    Route::post('/admin/themes/add', 'BackEndController@adminThemesAdd');
 
 
-Route::get('/admin/events', 'BackEndController@adminNews')->name('events');
-Route::get('/admin/events/new', 'BackEndController@adminNewsNew');
-Route::post('/admin/events/add', 'BackEndController@adminNewsAdd');
+    Route::get('/admin/events', 'BackEndController@adminNews')->name('events');
+    Route::get('/admin/events/new', 'BackEndController@adminNewsNew');
+    Route::post('/admin/events/add', 'BackEndController@adminNewsAdd');
 
-Route::get('/admin/mission', function () {
-    return view('backend.mission');
+
+    Route::get('/admin/gallery', 'BackEndController@adminNewsAdd');
+
+    Route::get('/admin/downloads', 'BackEndController@adminDownloads')->name('downloads');
+    Route::get('/admin/downloads/new', 'BackEndController@adminDownloadsNew');
+    Route::post('/admin/downloads/add', 'BackEndController@adminDownloadsAdd');
+
+    Route::get('/admin/mission', function () {
+        return view('backend.mission');
+    });
 });
 
 Auth::routes();

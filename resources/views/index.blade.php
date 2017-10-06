@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="col-md-4" style="margin: 10px">
-                            <b class="theme-l" style="font-size: 20px">Theme of the Month - Sep</b>
+                            <b class="theme-l" style="font-size: 20px">Theme of the Month - {{date('M')}}</b>
 
                             <div class="row">
                                 <ul class="seremon-list large">
@@ -85,8 +85,12 @@
 
             <div class="row" style="text-align: center">
                 <div class="col-md-6 col-md-offset-3">
-                    <h6>Bible quite of the day</h6>
-                    <h2>For God so Loved the world that HE gave his only begotten son, so that whomever..</h2>
+                    <h6>Bible quote of the day</h6>
+                    <h2 style="color: #1F55AB">
+                        @if(isset($quote))
+                            {{$quote->description}}
+                        @endif
+                    </h2>
                 </div>
             </div>
             <div class="fullwidth-block">

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Friends\'s Church (Quakers) Langata Monthly Meeting'),
 
     /*
     |--------------------------------------------------------------------------

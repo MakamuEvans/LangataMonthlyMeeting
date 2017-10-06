@@ -13,19 +13,23 @@
                     <div class="col-md-7">
                         <h2 style="color: #1F55AB">Theme of the Year</h2>
                         <hr>
-                        <p>Title of the Theme<br>
-                            Bible verse<br>
-                            Bible Quotation</p>
+                        @if(isset($themeYear))
+                            <p><b>Title: </b> {{$themeYear->title}}<br>
+                                <b>Bible Verse: </b> {{$themeYear->verse}}<br>
+                                {{$themeYear->description}}<br></p>
+                        @endif
                     </div>
                     <div class="col-md-4">
                         <h2 style="color: #1F55AB">Theme of the Month</h2>
                         <hr>
-                        <p>Title of the Theme<br>
-                            Bible verse<br>
-                            Bible Quotation</p>
+                        @if(isset($themeMonth))
+                            <p><b>Title: </b> {{$themeMonth->title}}<br>
+                                <b>Bible Verse: </b> {{$themeMonth->verse}}<br>
+                                {{$themeMonth->description}}<br></p>
+                        @endif
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin: 20px">
                     @foreach($sermons as $sermon)
                         <div class="row">
                             <b class="theme-l" style="font-size: 25px">{{$sermon->title}}</b>
@@ -50,6 +54,7 @@
                             </div>
                         </div>
                     @endforeach
+                    {{$sermons->links()}}
                 </div>
             </div>
             @include('includes.sidebar')

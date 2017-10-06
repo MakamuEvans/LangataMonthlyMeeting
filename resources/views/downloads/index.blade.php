@@ -9,11 +9,13 @@
     <div class="fullwidth-block">
         <div class="container">
             <div class="col-md-8">
-                <div class="col-md-4" style="border: solid #1F55AB 1px;text-align: center">
-                    <b>Title of item</b><br>
-                    <i>Uploaded on:</i><br>
-                    <a href="" class="btn btn-success btn-sm">Download</a>
-                </div>
+                @foreach($downloads as $download)
+                    <div class="col-md-4" style="border: solid #1F55AB 1px;text-align: center">
+                        <b>{{$download->title}}</b><br>
+                        <i>{{$download->created_at}}</i><br>
+                        <a href="{{url('downloads/link/'.$download->url)}}" class="btn btn-success btn-sm" style="background: #1F55AB">Download</a>
+                    </div>
+                @endforeach
             </div>
             @include('includes.sidebar')
         </div>

@@ -45,3 +45,9 @@ li a {
 .news-title a{
     color: #1F55AB !important;
 }
+.btn-success{
+    background-color: #1F55AB !important;
+}
+.service, .quote, .monthly, .yearly{
+    visibility: hidden;
+}

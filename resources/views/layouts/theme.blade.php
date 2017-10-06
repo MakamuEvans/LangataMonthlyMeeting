@@ -15,13 +15,16 @@
         .theme-l {
             color: #1F55AB !important;
         }
-        a{
-            color: #ab560e !important;
+
+        a {
+            color: white !important;
         }
-        item:hover a{
+
+        item:hover a {
             border-bottom-color: #1F55AB !important;
         }
-        .current-menu-item a{
+
+        .current-menu-item a {
             color: white !important;
         }
     </style>
