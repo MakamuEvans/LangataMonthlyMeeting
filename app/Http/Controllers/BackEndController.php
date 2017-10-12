@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Download;
 use App\Event;
+use App\Gallery;
 use App\Leaders;
 use App\Sermon;
 use Illuminate\Support\Facades\Response;
@@ -115,23 +116,29 @@ class BackEndController extends Controller
 
     public function events()
     {
-        $events = Event::orderBy('id', 'desc')->get();
+        $events = Event::orderBy('id', 'desc')->paginate(10);
         return view('events.index', compact('events'));
     }
 
     public function gallery()
     {
-        return view('backend.gallery.index');
+        $gallery = Gallery::orderBy('id', 'desc')->paginate(10);
+        return view('gallery.index', compact('gallery'));
     }
 
     public function downloads()
     {
-        $downloads = Download::orderBy('id', 'desc')->get();
+        $downloads = Download::orderBy('id', 'desc')->paginate(10);
         return view('downloads.index', compact('downloads'));
     }
-    public function download($url){
+
+    public function download($url, $ext)
+    {
 //        return Response::download(base_path().'/public/galleryimages/'.$id);
-        return Response::download(base_path().'/public/downloads/'.$url);
+        //return Response::download(base_path().'/public/downloads/'.$url);
+        return Response::make(file_get_contents(base_path() . '/public/downloads/' . $url), 200, [
+            'Content-Type' => 'application/' . $ext,
+            'Content-Disposition' => 'inline; filename="' . $url . '"']);
 
     }
 
@@ -177,10 +184,14 @@ class BackEndController extends Controller
 
         } else {
             //create new
+            if (!isset($request->image)) {
+                $name = null;
+            }
             Leaders::create(array(
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'contact' => $request->contact,
+
                 'image' => $name,
                 'pos_id' => $request->pos_id
             ));
@@ -283,11 +294,55 @@ class BackEndController extends Controller
 
 
         Download::create(array(
-            'title'=>$request->title,
-            'url'=> $name
+            'title' => $request->title,
+            'url' => $name,
+            'description' => $request->description,
+            'type' => $extension
         ));
 
         return redirect()->route('downloads')
             ->with('status', 'Successfully Added download');
+    }
+
+    public function adminGallery(){
+        $gallery = Gallery::orderBy('id', 'desc')->get();
+        return view('backend.gallery.index', compact('gallery'));
+    }
+    public function adminGalleryNew(){
+        return view('backend.gallery.new');
+    }
+    public function adminGalleryAdd(Request $request){
+        $filey = Input::file('images');//$request->file('contentzip');
+
+        if ($filey!=null){
+            foreach($filey as $filez){
+                $originname= $filez->getClientOriginalName();
+
+                $filename = pathinfo($originname, PATHINFO_FILENAME);
+                $extension = pathinfo($originname, PATHINFO_EXTENSION);
+                $nameg = $filename.'.'.time().'.' . $extension;
+
+                $filez->move(public_path() . '/gallery/', $nameg);
+                $allimages[] = $nameg;
+            }
+        }
+
+        Gallery::create(array(
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'images'=>implode(',',$allimages)
+        ));
+
+        return redirect()->route('gallery')
+            ->with('status', 'Gallery Successfully added');
+    }
+    public function galleryView($id){
+        $gallery = Gallery::findorFail($id);
+        $images = explode(',', $gallery->images);
+        return view('gallery.details', compact('gallery','images'));
+    }
+    public function eventsview($id){
+        $event = Event::findorFail($id);
+        return view('events.details', compact('event'));
     }
 }

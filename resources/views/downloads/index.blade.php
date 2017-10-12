@@ -10,10 +10,11 @@
         <div class="container">
             <div class="col-md-8">
                 @foreach($downloads as $download)
-                    <div class="col-md-4" style="border: solid #1F55AB 1px;text-align: center">
+                    <div class="col-md-5 effect1 box" style="text-align: center;margin-right: 10px">
                         <b>{{$download->title}}</b><br>
+                        <i>{{$download->description}}</i><br>
                         <i>{{$download->created_at}}</i><br>
-                        <a href="{{url('downloads/link/'.$download->url)}}" class="btn btn-success btn-sm" style="background: #1F55AB">Download</a>
+                        <a href="{{url('downloads/link/'.$download->url. '/'.$download->type)}}" class="btn btn-success btn-sm" style="border:1px solid #1F55AB;background-color: transparent">Download</a>
                     </div>
                 @endforeach
             </div>

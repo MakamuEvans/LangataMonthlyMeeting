@@ -4,7 +4,7 @@
     box-shadow: 0 10px 6px -6px #1F55AB;
 }
 body{
-    background-color: #f5f8fa;
+    background-color: #6FA3DD !important;
 }
 
 .box {
@@ -50,4 +50,7 @@ li a {
 }
 .service, .quote, .monthly, .yearly{
     visibility: hidden;
+}
+.date{
+    color: #1F55AB !important;
 }

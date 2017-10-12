@@ -1,36 +1,29 @@
 <div class="sidebar col-md-3 col-md-offset-1">
     <div class="widget">
         <h3 class="widget-title">SideBar</h3>
-        <b>Theme of this Year</b>
+        <hr>
+        <b style="color: black">Theme of this Year</b><br>
         @if(isset($themeYear))
-            <p>{{$themeYear->title}} : {{$themeYear->verse}}</p>
+            <p style="color: white">{{$themeYear->title}} : {{$themeYear->verse}}</p><br>
         @endif
-        <b>Theme of this Month</b>
+        <b style="color: black">Theme of this Month</b><br>
         @if(isset($themeMonth))
-            <p>{{$themeMonth->title}} : {{$themeMonth->verse}}</p>
+            <p style="color: white">{{$themeMonth->title}} : {{$themeMonth->verse}}</p><br>
         @endif
     </div>
 
     <div class="widget">
         <h3 class="widget-title">Social</h3>
+        <hr>
 
     </div>
 
     <div class="widget">
-        <h3 class="widget-title">Gallery updates</h3>
-
-        <div class="galery-thumb">
-            <a href="#"><img src="{{url('images/gallery-thumb-1.jpg')}}" alt=""></a>
-            <a href="#"><img src="{{url('images/gallery-thumb-2.jpg')}}" alt=""></a>
-            <a href="#"><img src="{{url('images/gallery-thumb-3.jpg')}}" alt=""></a>
-            <a href="#"><img src="{{url('images/gallery-thumb-4.jpg')}}" alt=""></a>
-            <a href="#"><img src="{{url('images/gallery-thumb-5.jpg')}}" alt=""></a>
-            <a href="#"><img src="{{url('images/gallery-thumb-6.jpg')}}" alt=""></a>
-        </div>
-    </div>
-
-    <div class="widget">
-        <h3 class="widget-title"></h3>
-        <p>Bible quote of the day</p>
+        <p style="color: #1F55AB">Bible quote of the day</p>
+        <i style="color: white;font-size: 13px">
+            @if(isset($quote))
+                {{$quote->description}}
+            @endif
+        </i>
     </div>
 </div>

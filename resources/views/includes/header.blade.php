@@ -35,7 +35,7 @@
                 @if(isset($gallery))
                     <li class="menu-item current-menu-item"><a href="{{url('gallery')}}">Gallery</a></li>
                 @else
-                    <li class="menu-item"><a href="{{url('galery')}}">Gallery</a></li>
+                    <li class="menu-item"><a href="{{url('gallery')}}">Gallery</a></li>
                 @endif
                 @if(isset($downloads))
                     <li class="menu-item current-menu-item"><a href="{{url('downloads')}}">Downloads</a></li>

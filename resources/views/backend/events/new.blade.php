@@ -18,12 +18,12 @@
                                 </div>
                                 <div class="form-group">
                                     <b>Description:  </b>
-                                    <textarea class="form-control" name="description">
+                                    <textarea class="form-control" id="tinymce_basic" name="description">
                                     </textarea>
                                 </div>
                                 <div class="form-group">
                                     <b>Dated:  </b>
-                                    <input type="text" name="dated" class="form-control">
+                                    <input type="text" name="dated" id="serviceDate" class="form-control">
                                 </div>
                             </div>
                         </div>

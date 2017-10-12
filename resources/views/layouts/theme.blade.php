@@ -8,9 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Friend's Church(Quakres) Langata Monthly Meeting</title>
     <link rel="stylesheet" href="{{url('css/style.css')}}">
     <link rel="stylesheet" href="{{url('css/elm.css')}}">
+
+    <style>
+        .mySlides {display:none;}
+    </style>
     <style>
         .theme-l {
             color: #1F55AB !important;
@@ -38,5 +42,6 @@
 <script src="{{url('js/jquery-1.11.1.min.js')}}"></script>
 <script src="{{url('js/plugins.js')}}"></script>
 <script src="{{url('js/app.js')}}"></script>
+
 </body>
 </html>

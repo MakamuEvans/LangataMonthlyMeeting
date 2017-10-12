@@ -17,6 +17,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Title</th>
+                                <th>Description</th>
                                 <th>Dated</th>
                             </tr>
                             </thead>
@@ -25,6 +26,7 @@
                                 <tr>
                                     <td></td>
                                     <td>{{$download->title}}</td>
+                                    <td>{{$download->description}}</td>
                                     <td>{{$download->created_at}}</td>
                                     <td><a href="{{url('/admin/downloads/edit/'.$download->id)}}">edit</a> </td>
                                 </tr>

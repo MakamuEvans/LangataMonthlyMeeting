@@ -22,11 +22,31 @@
                     @foreach($leaders as $leader)
                         <div class="col-md-3 col-sm-6">
                             <div class="news">
-                                <image class="news-image" src="{{url('images/avatar.png')}}"></image>
-                                <b class="news-title"><a href="#">First Name, Last Name</a></b>
+                                @if(isset($leader->leader->image))
+                                    @if(!is_null($leader->leader->image))
+                                        <image class="news-image"
+                                               src="{{url('public/leaders/'.$leader->leader->image)}}"></image>
+                                    @else
+                                        <image class="news-image" src="{{url('images/avatar.png')}}"></image>
+                                    @endif
+                                @else
+                                    <image class="news-image" src="{{url('images/avatar.png')}}"></image>
+                                @endif
+
+                                @if(isset($leader->leader->first_name))
+                                    <b class="news-title"><a href="#">{{$leader->leader->first_name}}
+                                            , {{$leader->leader->last_name}}</a></b>
+                                @else
+                                    Not Set
+                                @endif
                                 <hr>
                                 <i class="news-title"><a href="#">{{$leader->position}}</a></i><br>
-                                <small class="date"><i class="fa fa-calendar"></i>Contact details</small>
+                                @if(isset($leader->leader->id))
+                                    <small class="date"><i class="fa fa-calendar"></i>{{$leader->leader->contact}}
+                                    </small>
+                                @else
+                                    Not Set
+                                @endif
                             </div>
                         </div>
                     @endforeach

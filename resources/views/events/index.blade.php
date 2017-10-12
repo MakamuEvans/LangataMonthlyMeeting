@@ -10,21 +10,23 @@
         <div class="container">
             <div class="col-md-8">
                 @foreach($events as $event)
-                    <div class="col-md-6" style="padding-left: 10px;border-left: 1px #1F55AB solid">
-                        <b class="theme-l" style="font-size: 25px">{{$event->title}}</b>
-                        <div class="row">
-                            <ul class="seremon-list large">
-                                <li>
-                                    <div class="seremon-detail">
-                                        <div class="pastor"><i class="fa fa-user"></i> {{$event->description}}</div>
-                                        <br>
-                                        <h3 class="seremon-title"><a href="#">{{$event->dated}}</a></h3>
-                                    </div>
-                                </li>
-                            </ul>
+                    <div class="col-md-5"
+                         style="border: 1px white solid;margin-right: 10px;text-align:center;margin-bottom: 10px;border-radius: 5px;height: 170px;overflow: hidden">
+                        <div class="row" style="height: 30px;overflow: hidden">
+                            <b class="theme-l" style="font-size: 25px"><u>{{$event->title}}</u></b>
+                        </div>
+                        <div class="row" style="margin: 10px">
+                            <div class="seremon-detail">
+                                <div class="pastor" style="color: white;max-height: 50px;overflow: hidden"> {!! $event->description !!}</div>
+                                <br>
+                                <h3 style="color: white;font-size: 15px"> Dated: {{$event->dated}}</h3>
+                                <a href="{{url('events/details/'.$event->id)}}" class="pull-right" style="background-color: #1F55AB;">More details</a>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
+                {{$events->links()}}
             </div>
             @include('includes.sidebar')
         </div>

@@ -42,13 +42,15 @@ Route::get('/sermons/', 'BackEndController@sermons');
 
 
 Route::get('/events/', 'BackEndController@events');
+Route::get('/events/details/{id}', 'BackEndController@eventsView');
 
 
 Route::get('/gallery/', 'BackEndController@gallery');
+Route::get('/gallery/view/{id}', 'BackEndController@galleryView');
 
 
 Route::get('/downloads/', 'BackEndController@downloads');
-Route::get('/downloads/link/{url}', 'BackEndController@download');
+Route::get('/downloads/link/{url}/{ext}', 'BackEndController@download');
 
 
 Route::get('/local-meeting/langata', 'BackEndController@langata');
@@ -83,7 +85,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/admin/events/add', 'BackEndController@adminNewsAdd');
 
 
-    Route::get('/admin/gallery', 'BackEndController@adminNewsAdd');
+    Route::get('/admin/gallery', 'BackEndController@adminGallery')->name('gallery');
+    Route::get('/admin/gallery/new', 'BackEndController@adminGalleryNew');
+    Route::post('/admin/gallery/add', 'BackEndController@adminGalleryAdd');
 
     Route::get('/admin/downloads', 'BackEndController@adminDownloads')->name('downloads');
     Route::get('/admin/downloads/new', 'BackEndController@adminDownloadsNew');

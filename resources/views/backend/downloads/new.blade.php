@@ -16,6 +16,10 @@
                                     <b>Title:</b>
                                     <input type="text" name="title" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <b>Description:</b>
+                                    <textarea class="form-control" name="description"></textarea>
+                                </div>
                                 <div class="row" style="padding-left: 20px">
                                     <b>Select File</b>
                                     {!! Form::file('image', null) !!}

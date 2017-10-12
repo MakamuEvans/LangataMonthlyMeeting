@@ -73,7 +73,9 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{url('backend/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{url('backend/js/custom.js')}}"></script>
+<script src="{{url('js/tinymce/js/tinymce/tinymce.min.js')}}"></script>
 <script>
+    tinymce.init({ selector:'#tinymce_basic' });
     $( function() {
         $( "#serviceDate" ).datepicker();
     } );

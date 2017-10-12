@@ -31,21 +31,19 @@
                 </div>
                 <div class="row" style="margin: 20px">
                     @foreach($sermons as $sermon)
-                        <div class="row">
+                        <div class="row" style="border: 1px white solid;margin-top: 10px;padding: 20px">
                             <b class="theme-l" style="font-size: 25px">{{$sermon->title}}</b>
-                            <div class="row">
-                                <ul class="seremon-list large">
+                            <div class="col-md-12">
+                                <ul class=" large">
                                     <li>
-                                        <img src="images/thumb-1-120.png" alt="">
-                                        <div class="seremon-detail">
-                                            <div class="pastor"><i class="fa fa-user"></i> {{$sermon->verse}}</div>
-                                            <br>
-                                            <h3 class="seremon-title"><a href="#">{{$sermon->description}}</a></h3>
+                                        <div class="sermon-detail" style="color: white;">
+                                            <div class="pastor"> {{$sermon->verse}}</div>
+                                            <i class="sermon-title" style="color: white">{{$sermon->description}}</i>
                                             <div class="seremon-meta">
                                                 <div class="date"><i class="fa fa-calendar"></i> {{$sermon->type}}
                                                 </div>
                                                 <br>
-                                                <div class="date"><i class="fa fa-calendar"></i> {{$sermon->period}}
+                                                <div class="date"><i class="fa fa-calendar"></i>Dated: {{$sermon->period}}
                                                 </div>
                                             </div>
                                         </div>

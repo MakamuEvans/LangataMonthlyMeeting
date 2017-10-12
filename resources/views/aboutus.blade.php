@@ -112,6 +112,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row effect1 box">
+                            <b class="theme-l" style="font-size: 25px">Read More</b>
+                            <p>
+                                Click <a href="{{ url('public/Strategicplan.pdf') }}" style="background-color: #1F55AB">here</a> to view our strategic plan
+                            </p>
+                        </div>
                     </div>
                     @include('includes.sidebar')
                 </div>
