@@ -31,24 +31,26 @@
                 </div>
                 <div class="row" style="margin: 20px">
                     @foreach($sermons as $sermon)
-                        <div class="row" style="border: 1px white solid;margin-top: 10px;padding: 20px">
-                            <b class="theme-l" style="font-size: 25px">{{$sermon->title}}</b>
+                        <div class="row"
+                             style="border: 1px white solid;margin-top: 10px;padding: 20px;border-radius: 5px">
+                            <b class="theme-l" style="font-size: 25px"><u>{{$sermon->title}}</u></b>
                             <div class="col-md-12">
-                                <ul class=" large">
-                                    <li>
-                                        <div class="sermon-detail" style="color: white;">
-                                            <div class="pastor"> {{$sermon->verse}}</div>
-                                            <i class="sermon-title" style="color: white">{{$sermon->description}}</i>
-                                            <div class="seremon-meta">
-                                                <div class="date"><i class="fa fa-calendar"></i> {{$sermon->type}}
-                                                </div>
-                                                <br>
-                                                <div class="date"><i class="fa fa-calendar"></i>Dated: {{$sermon->period}}
-                                                </div>
-                                            </div>
+                                <div class="sermon-detail" style="color: white;">
+                                    <div class="pastor"><b>Verse:</b> {{$sermon->verse}}</div>
+                                    <b>Description:</b>
+                                    <i class="sermon-title" style="color: white">
+                                        {{$sermon->description}}
+                                    </i>
+                                    <div class="seremon-meta">
+                                        <div style="color: white">
+                                            <b>{{$sermon->type}}</b>
                                         </div>
-                                    </li>
-                                </ul>
+                                        <div style="color: white">
+                                            <b>Dated:</b> {{$sermon->period}}
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     @endforeach

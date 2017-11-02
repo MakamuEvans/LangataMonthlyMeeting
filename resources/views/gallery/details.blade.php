@@ -16,19 +16,14 @@
                     <div class="fullwidth-block" style="padding: 0px">
                         <div class="container">
                             <div class="col-md-12">
-                                <div class="hero">
-                                    <div class="slides">
+                                <div class="flexslider2">
+                                    <ul class="slides">
                                         @foreach($images as $image)
-                                            <li data-bg-image="{{url('public/gallery/'.$image)}}">
-                                                <div class="container">
-                                                    <div class="slide-content">
-                                                        <small class="slide-subtitle">.</small>
-                                                        <h1 class="slide-title">.</h1>
-                                                    </div>
-                                                </div>
+                                            <li data-thumb="{{url('public/gallery/'.$image)}}">
+                                                <img src="{{url('public/gallery/'.$image)}}">
                                             </li>
                                         @endforeach
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

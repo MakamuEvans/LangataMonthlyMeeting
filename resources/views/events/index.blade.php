@@ -19,8 +19,8 @@
                             <div class="seremon-detail">
                                 <div class="pastor" style="color: white;max-height: 50px;overflow: hidden"> {!! $event->description !!}</div>
                                 <br>
-                                <h3 style="color: white;font-size: 15px"> Dated: {{$event->dated}}</h3>
-                                <a href="{{url('events/details/'.$event->id)}}" class="pull-right" style="background-color: #1F55AB;">More details</a>
+                                <b style="color: white;font-size: 15px"> Dated: {{$event->dated}}</b><br>
+                                <a href="{{url('events/details/'.$event->id)}}" class="btn btn-success" style="background-color: #1F55AB;">More details</a>
                             </div>
 
                         </div>

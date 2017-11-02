@@ -11,6 +11,11 @@
                             <a href="{{url('admin/downloads/new')}}" data-rel="collapse">New</a>
                         </div>
                     </div>
+                    @if (session('status'))
+                        <div class="row alert alert-success" style="margin-top: 20px">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="panel-body">
                         <table class="table">
                             <thead>
@@ -28,7 +33,7 @@
                                     <td>{{$download->title}}</td>
                                     <td>{{$download->description}}</td>
                                     <td>{{$download->created_at}}</td>
-                                    <td><a href="{{url('/admin/downloads/edit/'.$download->id)}}">edit</a> </td>
+                                    <td><a href="{{url('/admin/downloads/delete/'.$download->id)}}" style="color: red">delete</a> </td>
                                 </tr>
                             @endforeach
                             </tbody>

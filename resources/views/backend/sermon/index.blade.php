@@ -11,6 +11,11 @@
                             <a href="{{url('admin/themes/new')}}" data-rel="collapse">New</a>
                         </div>
                     </div>
+                    @if (session('status'))
+                        <div class="row alert alert-success" style="margin-top: 20px">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="panel-body">
                         <table class="table">
                             <thead>
@@ -33,7 +38,10 @@
                                     <td>{{$sermon->description}}</td>
                                     <td>{{$sermon->type}}</td>
                                     <td>{{$sermon->period}}</td>
-                                    <td><a href="{{url('/admin/themes/edit/'.$sermon->id)}}">edit</a> </td>
+                                    <td>
+                                        <a href="{{url('/admin/themes/edit/'.$sermon->id)}}" style="color: green">edit</a>
+                                        <a href="{{url('/admin/themes/delete/'.$sermon->id)}}" style="color: red">delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

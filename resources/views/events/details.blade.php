@@ -11,6 +11,7 @@
             <div class="col-md-8">
                 <h2 style="color: white">{{$event->title}}</h2>
                 <h6 style="color: white"><b>Dated: </b>{{$event->dated}}</h6>
+                <hr>
                 <div style="color: white">
                     @if(!is_null($event->description))
                         {!! $event->description !!}

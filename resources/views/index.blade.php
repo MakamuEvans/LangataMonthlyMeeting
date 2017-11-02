@@ -6,43 +6,30 @@
             <div class="fullwidth-block" style="padding: 0px">
                 <div class="container">
                     <div class="col-md-12">
-                        <div class="hero">
-                            <div class="slides">
-                                <li data-bg-image="{{url('images/church.jpg')}}">
-                                    <div class="container">
-                                        <div class="slide-content">
-                                            <small class="slide-subtitle">.</small>
-                                            <h1 class="slide-title">.</h1>
-
-                                            <b style="color: white;font-size: 40px;background-color: #1F55AB">Our
-                                                Church</b>
-                                        </div>
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="{{url('images/church.jpg')}}" />
+                                    <div class="flex-caption">
+                                        <b style="font-size: 30px">Welcome</b>
+                                        <p>This is the official website for Friends' Church(Quakers) Lang'ata Monthly meeting.</p>
                                     </div>
                                 </li>
-
-                                <li data-bg-image="images/front.jpg">
-                                    <div class="container">
-                                        <div class="slide-content">
-                                            <small class="slide-subtitle">.</small>
-                                            <h1 class="slide-title">.</h1>
-
-                                            <b style="color: white;font-size: 40px;background-color: #1F55AB">Friends'
-                                                Church (Quakers) Langata</b>
-                                        </div>
+                                <li>
+                                    <img src="{{url('images/front.jpg')}}" />
+                                    <div class="flex-caption">
+                                        <b style="font-size: 30px">Lang'ata Church</b>
+                                        <p>Front View of Lang'ata Church</p>
                                     </div>
                                 </li>
-                                <li data-bg-image="images/inside.jpg">
-                                    <div class="container">
-                                        <div class="slide-content">
-                                            <small class="slide-subtitle">.</small>
-                                            <h1 class="slide-title">.</h1>
-
-                                            <b style="color: white;font-size: 40px;background-color: #1F55AB">Our Church
-                                                Pavilion</b>
-                                        </div>
+                                <li>
+                                    <img src="{{url('images/inside.jpg')}}" />
+                                    <div class="flex-caption">
+                                        <b style="font-size: 30px">Lang'ata Church</b>
+                                        <p>Inside View of Lang'ata Church</p>
                                     </div>
                                 </li>
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -55,23 +42,23 @@
                 <div class="container" style="margin-top: 10px">
                     <div class="col-md-12 effect1 box">
                         <div class="col-md-7" style="margin-right: 40px">
-                            <b class="theme-l" style="font-size: 25px"><u>Theme of the Year - {{date('Y')}}</u></b>
+                            <b class="theme-l" style="font-size: 20px"><u>Theme of the Year - {{date('Y')}}</u></b>
 
                             <div class="row">
                                 <ul class=" large">
                                     @if(isset($themeYear))
 
                                         <div class="seremon-detail" style="padding: 10px">
-                                            <b class="" style="font-size: 20px">Title: {{$themeYear->title}}</b>
+                                            <b class="" style="font-size: 16px">Title: {{$themeYear->title}}</b>
                                             <div class="seremon-meta">
                                                 <div class="pastor"><i
                                                             class="fa fa-user"></i>Verse: {{$themeYear->verse}}
                                                 </div>
-                                                <div class="date"><i
+                                                <div class=""><i
                                                             class="fa fa-calendar"></i>Period: {{$themeYear->period}}
                                                 </div>
                                             </div>
-                                            <p>Brief: {{$themeYear->description}}</p>
+                                            <p>Brief: <i>{{$themeYear->description}}</i></p>
                                         </div>
 
                                     @endif
@@ -79,22 +66,22 @@
                             </div>
                         </div>
                         <div class="col-md-4" style="margin: 10px">
-                            <b class="theme-l" style="font-size: 20px"><u>Theme of the Month - {{date('M')}}</u></b>
+                            <b class="theme-l" style="font-size: 18px"><u>Theme of the Month - {{date('M')}}</u></b>
 
                             <div class="row">
                                 <ul class=" large">
                                     @if(isset($themeMonth))
                                         <div class="seremon-detail" style="padding: 10px">
-                                            <b class="" style="font-size: 20px">Title: {{$themeMonth->title}}</b>
+                                            <b class="" style="font-size: 16px">Title: {{$themeMonth->title}}</b>
                                             <div class="seremon-meta">
                                                 <div class="pastor"><i
                                                             class="fa fa-user"></i>Verse: {{$themeMonth->verse}}
                                                 </div>
-                                                <div class="date"><i
+                                                <div class=""><i
                                                             class="fa fa-calendar"></i>Period: {{$themeMonth->period}}
                                                 </div>
                                             </div>
-                                            <p>Brief: {{$themeMonth->description}}</p>
+                                            <p>Brief: <i>{{$themeMonth->description}}</i></p>
                                         </div>
                                     @endif
                                 </ul>
@@ -109,11 +96,13 @@
             <div class="row" style="text-align: center">
                 <div class="col-md-6 col-md-offset-3">
                     <h6 style="color: black">Bible quote of the day</h6>
-                    <h2 style="color: white">
+                    <div class="row" style="color: white;font-size: 18px">
                         @if(isset($quote))
-                            {{$quote->description}}
+                            <i>
+                                {{$quote->description}}
+                            </i>
                         @endif
-                    </h2>
+                    </div>
                 </div>
             </div>
             <div class="fullwidth-block">
@@ -128,7 +117,7 @@
                                         <b class="news-title" style="font-size: 15px;color: #1F55AB">{{$new->title}}</b><br>
                                         <small style="color: red" class="date">{{$new->dated}}</small><br>
                                         <hr>
-                                        <a href="{{url('events/details/'.$new->id)}}" class="pull-right" style="background-color: #1F55AB;">More details</a>
+                                        <a href="{{url('events/details/'.$new->id)}}" class="btn btn-success">More details</a>
                                     </div>
                                 </div>
                             @endforeach

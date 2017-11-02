@@ -15,7 +15,7 @@
     <div class="widget">
         <h3 class="widget-title">Social</h3>
         <hr>
-
+        <div class="fb-page" data-href="https://www.facebook.com/fclangata" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fclangata" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fclangata">Friendschurch Langata</a></blockquote></div>
     </div>
 
     <div class="widget">

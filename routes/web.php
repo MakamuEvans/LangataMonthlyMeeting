@@ -12,9 +12,8 @@
 */
 
 Route::get('/', function () {
-    //dd(date('F Y'));
     $home= true;
-    $news = \App\Event::orderBy('id', 'desc')->get();
+    $news = \App\Event::orderBy('id', 'desc')->take(4)->get();
     $themeYear= \App\Sermon::where('type', 'Yearly Theme')->where('period', date('Y'))->first();
     $themeMonth= \App\Sermon::where('type', 'Monthly Theme')->where('period', date('F Y'))->first();
     $quote = \App\Sermon::where('type', 'Quote')->first();
@@ -78,20 +77,26 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/themes', 'BackEndController@adminThemes')->name('sermon');
     Route::get('/admin/themes/new', 'BackEndController@adminThemesNew');
     Route::post('/admin/themes/add', 'BackEndController@adminThemesAdd');
+    Route::any('/admin/themes/edit/{id}', 'BackEndController@adminThemesEdit');
+    Route::get('/admin/themes/delete/{id}', 'BackEndController@adminThemesDelete');
 
 
     Route::get('/admin/events', 'BackEndController@adminNews')->name('events');
     Route::get('/admin/events/new', 'BackEndController@adminNewsNew');
     Route::post('/admin/events/add', 'BackEndController@adminNewsAdd');
+    Route::any('/admin/events/edit/{id}', 'BackEndController@adminNewsEdit');
+    Route::get('/admin/events/delete/{id}', 'BackEndController@adminNewsDelete');
 
 
     Route::get('/admin/gallery', 'BackEndController@adminGallery')->name('gallery');
     Route::get('/admin/gallery/new', 'BackEndController@adminGalleryNew');
     Route::post('/admin/gallery/add', 'BackEndController@adminGalleryAdd');
+    Route::get('/admin/gallery/delete/{id}', 'BackEndController@adminGalleryDelete');
 
     Route::get('/admin/downloads', 'BackEndController@adminDownloads')->name('downloads');
     Route::get('/admin/downloads/new', 'BackEndController@adminDownloadsNew');
     Route::post('/admin/downloads/add', 'BackEndController@adminDownloadsAdd');
+    Route::get('/admin/downloads/delete/{id}', 'BackEndController@adminDownloadsDelete');
 
     Route::get('/admin/mission', function () {
         return view('backend.mission');

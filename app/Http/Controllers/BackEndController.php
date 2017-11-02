@@ -150,7 +150,7 @@ class BackEndController extends Controller
 
     public function adminThemes()
     {
-        $sermons = Sermon::all();
+        $sermons = Sermon::orderBy('id', 'desc')->get();
         return view('backend.sermon.index', compact('sermons'));
     }
 
@@ -205,6 +205,38 @@ class BackEndController extends Controller
         return view('backend.sermon.new');
     }
 
+    public function adminNewsEdit(Request $request, $id){
+        $news = Event::findorFail($id);
+        if ($request->isMethod('get')){
+            return view('backend.events.new', compact('news'));
+        }
+
+        $news->fill($request->all());
+        $news->save();
+        return redirect()->route('events')
+            ->with('status', 'Event Successfully Edited');
+    }
+
+    public function adminThemesEdit(Request $request, $id){
+        $sermon = Sermon::findorFail($id);
+        if ($request->isMethod('get')){
+            return view('backend.sermon.new', compact('sermon'));
+        }
+
+        $sermon->fill($request->all());
+        $sermon->save();
+        return redirect()->route('sermon')
+            ->with('status', 'Successful Update');
+    }
+
+    public function adminThemesDelete($id){
+        $sermon = Sermon::findorFail($id);
+        $sermon->delete();
+        return redirect()->route('sermon')
+            ->with('status', 'Successful Update');
+
+    }
+
     public function adminThemesAdd(Request $request)
     {
         //dd($request->all());
@@ -247,13 +279,21 @@ class BackEndController extends Controller
 
     public function adminNews()
     {
-        $events = Event::all();
+        $events = Event::orderBy('id', 'desc')->get();
         return view('backend.events.index', compact('events'));
     }
 
     public function adminNewsNew()
     {
         return view('backend.events.new');
+    }
+
+    public function adminNewsDelete($id){
+        $news = Event::findorFail($id);
+        $news->delete();
+
+        return redirect()->route('events')
+            ->with('status', 'Event Successfully deleted');
     }
 
     public function adminNewsAdd(Request $request)
@@ -275,6 +315,14 @@ class BackEndController extends Controller
     public function adminDownloadsNew()
     {
         return view('backend.downloads.new');
+    }
+
+    public function adminDownloadsDelete($id){
+        $download = Download::findorFail($id);
+        $download->delete();
+        return redirect()->route('downloads')
+            ->with('status', 'Successfully Deleted download titled '.$download->title);
+
     }
 
     public function adminDownloadsAdd(Request $request)
@@ -307,6 +355,15 @@ class BackEndController extends Controller
     public function adminGallery(){
         $gallery = Gallery::orderBy('id', 'desc')->get();
         return view('backend.gallery.index', compact('gallery'));
+    }
+
+    public function adminGalleryDelete($id){
+        $gallery = Gallery::findorFail($id);
+        $gallery->delete();
+
+        return redirect()->route('gallery')
+            ->with('status', $gallery->title.' Successfully Deleted');
+
     }
     public function adminGalleryNew(){
         return view('backend.gallery.new');
