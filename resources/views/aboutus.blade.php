@@ -3,6 +3,9 @@
     <div class="page-head" data-bg-image="images/page-head-1.jpg">
         <div class="container">
             <h2 class="page-title">About Us</h2>
+            <p class="" style="font-size: 15px;color: red;font-style: italic">
+                <i class="fa fa-quote-left"></i> You are my friend if you do what I command - John 15:14
+            </p>
         </div>
     </div>
 
@@ -12,18 +15,68 @@
                 <div class="row">
                     <div class="content col-md-8">
                         <div class="row effect1 box">
+                            <b class="theme-l" style="font-size: 25px">About Us</b>
+                            <p>
+                                Welcome to Friends Church (Quakers) Langata Monthly Meeting.<br><br>
+                                We are so glad that you found us here. <br><br>
+                                Our head offices are located at Nairobi County, Langata Sub-county on Langata road off
+                                Kitengela road opposite Langata Boys High School.<br>
+                                It can be accessed through boarding a matatu number 15 for langata from the City Center.
+                                <br><br>
+                                Friends Church(Quakers) Langata Monthly Meeting has three local Churches namely:
+                            <ul style="margin-left: 20px">
+                                <li>Langata</li>
+                                <li>Nairobi West</li>
+                                <li>Ongata Rongai</li>
+                            </ul>
+                            <br><br>
+
+                            Our order of service is as follows:<br>
+                            <ul style="margin-left: 20px">
+                                <li>8:00 a.m - 9:00 a.m. - Morning Glory</li>
+                                <li>9:00 a.m. - 11.00 a.m. - Sunday School</li>
+                                <li>9:30 a.m - 11:30 a.m. - Main Service</li>
+                                <li>3rd Friday of every month - Kesha</li>
+                            </ul>
+
+                            Saturday
+                            <ul style="margin-left: 20px">
+                                <li>Committee Meeting: 10:00 a.m. - 2:00 p.m.</li>
+                                <li>Choir Practice ; Praise & Worship:- 3:00 pm - 5:00 pm</li>
+                            </ul>
+                            </p>
+                        </div>
+
+                        <div class="row effect1 box">
                             <b class="theme-l" style="font-size: 25px">History of our church...</b>
                             <p>
                                 Friends Church (Quakers) Langata Monthly Meeting started in 1987. <br>
                                 It has three local meetings which are located as below; <br><br>
 
-                                1. <b class="theme-l">Langata Local Church</b> -located near Otiende Shopping Centre, opposite Langata High School and is less than one kilometer from Langata Police Station.  The church started in 1987 as a local meeting by a handful of members of Quaker faith meeting at the KWS education center and later at the Langata Road Primary School.  As the congregation grew the members acquired a one acre plot where current construction is ongoing.  It has a seating capacity of 2,500 people.  To date through the members own efforts and other friends and well wishers we have managed to complete construction of the foundation, walling, ring beams, balcony, roofing, doors, plastering, tiling the floor and offices.<br><br>
+                                1. <b class="theme-l">Langata Local Church</b> -located near Otiende Shopping Centre,
+                                opposite Langata High School and is less than one kilometer from Langata Police Station.
+                                The church started in 1987 as a local meeting by a handful of members of Quaker faith
+                                meeting at the KWS education center and later at the Langata Road Primary School. As the
+                                congregation grew the members acquired a one acre plot where current construction is
+                                ongoing. It has a seating capacity of 2,500 people. To date through the members own
+                                efforts and other friends and well wishers we have managed to complete construction of
+                                the foundation, walling, ring beams, balcony, roofing, doors, plastering, tiling the
+                                floor and offices.<br><br>
 
-                                2. <b class="theme-l">Nairobi West Local Church</b> -located next to Strathmore Business School in Nairobi West.  The church is in a developmental phase and is working on development of the plot to accommodate various church activities.<br><br>
+                                2. <b class="theme-l">Nairobi West Local Church</b> -located next to Strathmore Business
+                                School in Nairobi West. The church is in a developmental phase and is working on
+                                development of the plot to accommodate various church activities.<br><br>
 
-                                3. <b class="theme-l">Ongata Rongai Local Church</b> -is located in Ongata Rongai near Tuskys Chap Chap across Magadi Road third right turning on land that was purchased in 2012.  The Church was inaugurated by the Nairobi Yearly Meeting as a local meeting of the Langata Monthly Meeting in 2011 and have been meeting in over four different rented locations before finally identifying a piece of land to purchase where they currently meet.  To date through the members own efforts and other friends and well-wishers the Church has managed to build a temporary meeting room, ablution facilities.<br><br>
+                                3. <b class="theme-l">Ongata Rongai Local Church</b> -is located in Ongata Rongai near
+                                Tuskys Chap Chap across Magadi Road third right turning on land that was purchased in
+                                2012. The Church was inaugurated by the Nairobi Yearly Meeting as a local meeting of the
+                                Langata Monthly Meeting in 2011 and have been meeting in over four different rented
+                                locations before finally identifying a piece of land to purchase where they currently
+                                meet. To date through the members own efforts and other friends and well-wishers the
+                                Church has managed to build a temporary meeting room, ablution facilities.<br><br>
 
-                                Our desire is to grow in Christ and to preach to all in our community, family and friends about the love of Christ.
+                                Our desire is to grow in Christ and to preach to all in our community, family and
+                                friends about the love of Christ.
 
 
                             </p>
@@ -115,7 +168,8 @@
                         <div class="row effect1 box">
                             <b class="theme-l" style="font-size: 25px">Read More</b>
                             <p>
-                                Click <a href="{{ url('public/Strategicplan.pdf') }}" style="background-color: #1F55AB">here</a> to view our strategic plan
+                                Click <a href="{{ url('public/Strategicplan.pdf') }}" style="background-color: #1F55AB">here</a>
+                                to view our strategic plan
                             </p>
                         </div>
                     </div>

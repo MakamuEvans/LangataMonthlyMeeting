@@ -108,7 +108,7 @@
             <div class="fullwidth-block">
                 <div class="container effect1 box">
                     <div class="col-md-12">
-                        <b class="theme-l" style="font-size: 25px">Announcements / News</b>
+                        <b class="theme-l" style="font-size: 25px">Latest Announcements / News</b>
 
                         <div class="col-md-12">
                             @foreach($news as $new)
@@ -123,7 +123,7 @@
                             @endforeach
                         </div>
                         <div class="col-md-12" style="text-align: center">
-                            <a style="color: #1F55AB" href="{{url('events')}}">View All</a>
+                            <a style="background-color: #1F55AB" href="{{url('events')}}">View All</a>
                         </div>
                     </div>
                 </div>
